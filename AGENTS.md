@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- All mock content lives in `src/lib/mock-data.ts`; screens read and mutate it only through the in-memory store in `src/lib/store.ts` — one source of truth until a real backend exists.
+- Reusable Repwise UI lives in `src/components/repwise/`; screens under `src/routes/app.*` compose those pieces instead of styling one-offs.
+- Colors, shadows, fonts and animations are tokens/utilities in `src/styles.css`; components use semantic classes (bg-primary, bg-tint, bg-ink, text-destructive) only.
+- Formatting and rhythm rules (pace, duration, tempo rating, exercise-line parsing) live in `src/lib/format.ts` and are covered by `src/test/format.test.ts`.

@@ -10,33 +10,194 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppRouteImport } from './routes/app'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppFormRouteImport } from './routes/app.form'
+import { Route as AppProgressRouteImport } from './routes/app.progress'
+import { Route as AppHistoryIndexRouteImport } from './routes/app.history.index'
+import { Route as AppHistoryIdRouteImport } from './routes/app.history.$id'
+import { Route as AppRoutinesIndexRouteImport } from './routes/app.routines.index'
+import { Route as AppRoutinesIdRouteImport } from './routes/app.routines.$id'
+import { Route as AppRunIndexRouteImport } from './routes/app.run.index'
+import { Route as AppRunIdRouteImport } from './routes/app.run.$id'
+import { Route as AppRunAllRouteImport } from './routes/app.run.all'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppFormRoute = AppFormRouteImport.update({
+  id: '/form',
+  path: '/form',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProgressRoute = AppProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHistoryIndexRoute = AppHistoryIndexRouteImport.update({
+  id: '/history/',
+  path: '/history/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHistoryIdRoute = AppHistoryIdRouteImport.update({
+  id: '/history/$id',
+  path: '/history/$id',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRoutinesIndexRoute = AppRoutinesIndexRouteImport.update({
+  id: '/routines/',
+  path: '/routines/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRoutinesIdRoute = AppRoutinesIdRouteImport.update({
+  id: '/routines/$id',
+  path: '/routines/$id',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRunIndexRoute = AppRunIndexRouteImport.update({
+  id: '/run/',
+  path: '/run/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRunIdRoute = AppRunIdRouteImport.update({
+  id: '/run/$id',
+  path: '/run/$id',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRunAllRoute = AppRunAllRouteImport.update({
+  id: '/run/all',
+  path: '/run/all',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/app/form': typeof AppFormRoute
+  '/app/progress': typeof AppProgressRoute
+  '/app/': typeof AppIndexRoute
+  '/app/history/$id': typeof AppHistoryIdRoute
+  '/app/routines/$id': typeof AppRoutinesIdRoute
+  '/app/run/$id': typeof AppRunIdRoute
+  '/app/run/all': typeof AppRunAllRoute
+  '/app/history/': typeof AppHistoryIndexRoute
+  '/app/routines/': typeof AppRoutinesIndexRoute
+  '/app/run/': typeof AppRunIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/app/form': typeof AppFormRoute
+  '/app/progress': typeof AppProgressRoute
+  '/app': typeof AppIndexRoute
+  '/app/history/$id': typeof AppHistoryIdRoute
+  '/app/routines/$id': typeof AppRoutinesIdRoute
+  '/app/run/$id': typeof AppRunIdRoute
+  '/app/run/all': typeof AppRunAllRoute
+  '/app/history': typeof AppHistoryIndexRoute
+  '/app/routines': typeof AppRoutinesIndexRoute
+  '/app/run': typeof AppRunIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/app/form': typeof AppFormRoute
+  '/app/progress': typeof AppProgressRoute
+  '/app/': typeof AppIndexRoute
+  '/app/history/$id': typeof AppHistoryIdRoute
+  '/app/routines/$id': typeof AppRoutinesIdRoute
+  '/app/run/$id': typeof AppRunIdRoute
+  '/app/run/all': typeof AppRunAllRoute
+  '/app/history/': typeof AppHistoryIndexRoute
+  '/app/routines/': typeof AppRoutinesIndexRoute
+  '/app/run/': typeof AppRunIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/login'
+    | '/register'
+    | '/app/form'
+    | '/app/progress'
+    | '/app/'
+    | '/app/history/$id'
+    | '/app/routines/$id'
+    | '/app/run/$id'
+    | '/app/run/all'
+    | '/app/history/'
+    | '/app/routines/'
+    | '/app/run/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/app/form'
+    | '/app/progress'
+    | '/app'
+    | '/app/history/$id'
+    | '/app/routines/$id'
+    | '/app/run/$id'
+    | '/app/run/all'
+    | '/app/history'
+    | '/app/routines'
+    | '/app/run'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/login'
+    | '/register'
+    | '/app/form'
+    | '/app/progress'
+    | '/app/'
+    | '/app/history/$id'
+    | '/app/routines/$id'
+    | '/app/run/$id'
+    | '/app/run/all'
+    | '/app/history/'
+    | '/app/routines/'
+    | '/app/run/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  RegisterRoute: typeof RegisterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +209,133 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/form': {
+      id: '/app/form'
+      path: '/form'
+      fullPath: '/app/form'
+      preLoaderRoute: typeof AppFormRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/progress': {
+      id: '/app/progress'
+      path: '/progress'
+      fullPath: '/app/progress'
+      preLoaderRoute: typeof AppProgressRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/history/': {
+      id: '/app/history/'
+      path: '/history'
+      fullPath: '/app/history/'
+      preLoaderRoute: typeof AppHistoryIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/history/$id': {
+      id: '/app/history/$id'
+      path: '/history/$id'
+      fullPath: '/app/history/$id'
+      preLoaderRoute: typeof AppHistoryIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/routines/': {
+      id: '/app/routines/'
+      path: '/routines'
+      fullPath: '/app/routines/'
+      preLoaderRoute: typeof AppRoutinesIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/routines/$id': {
+      id: '/app/routines/$id'
+      path: '/routines/$id'
+      fullPath: '/app/routines/$id'
+      preLoaderRoute: typeof AppRoutinesIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/run/': {
+      id: '/app/run/'
+      path: '/run'
+      fullPath: '/app/run/'
+      preLoaderRoute: typeof AppRunIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/run/$id': {
+      id: '/app/run/$id'
+      path: '/run/$id'
+      fullPath: '/app/run/$id'
+      preLoaderRoute: typeof AppRunIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/run/all': {
+      id: '/app/run/all'
+      path: '/run/all'
+      fullPath: '/app/run/all'
+      preLoaderRoute: typeof AppRunAllRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppFormRoute: typeof AppFormRoute
+  AppProgressRoute: typeof AppProgressRoute
+  AppIndexRoute: typeof AppIndexRoute
+  AppHistoryIdRoute: typeof AppHistoryIdRoute
+  AppRoutinesIdRoute: typeof AppRoutinesIdRoute
+  AppRunIdRoute: typeof AppRunIdRoute
+  AppRunAllRoute: typeof AppRunAllRoute
+  AppHistoryIndexRoute: typeof AppHistoryIndexRoute
+  AppRoutinesIndexRoute: typeof AppRoutinesIndexRoute
+  AppRunIndexRoute: typeof AppRunIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppFormRoute: AppFormRoute,
+  AppProgressRoute: AppProgressRoute,
+  AppIndexRoute: AppIndexRoute,
+  AppHistoryIdRoute: AppHistoryIdRoute,
+  AppRoutinesIdRoute: AppRoutinesIdRoute,
+  AppRunIdRoute: AppRunIdRoute,
+  AppRunAllRoute: AppRunAllRoute,
+  AppHistoryIndexRoute: AppHistoryIndexRoute,
+  AppRoutinesIndexRoute: AppRoutinesIndexRoute,
+  AppRunIndexRoute: AppRunIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  LoginRoute: LoginRoute,
+  RegisterRoute: RegisterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
